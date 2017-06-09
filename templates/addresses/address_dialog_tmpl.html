@@ -1,0 +1,67 @@
+<md-dialog aria-label="Addres dialog">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>{{'ADDRESS_TITLE' | translate}} </h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="close()" ng-show="!Saving">
+                <md-icon aria-label="Close dialog">close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <div layout="row" layout-align="center center" ng-show="Saving" >
+                {{'SAVING' | translate}}
+            </div>
+            <div layout="row" ng-show="Saving" layout-sm="column" layout-align="space-around">
+                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+            </div>
+            <form name="addressForm" ng-show="!Saving">
+                <md-input-container class="md-block" style="width:400px;">
+                    <label>{{'ADDRESS_TITLE'| translate}}</label>
+                    <input name="address" ng-model="address.address" placeholder="{{'STREET'| translate}}" md-maxlength="300" required>
+                    <div ng-messages="addressForm.address.$error" role="alert" multiple>
+                        <div ng-message="required">{{'ADDRESS_REQUIRED' | translate}} </div>
+                        <div ng-message="md-maxlength">{{'ADDRESS_IS_TO_LONG'| translate}}</div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>{{'POST_CODE'| translate}}</label>
+                    <input name="post_code" ng-model="address.postCode" placeholder="{{'POST_CODE'| translate}}" md-maxlength="20" required>
+                    <div ng-messages="addressForm.post_code.$error" role="alert" multiple>
+                        <div ng-message="required">{{'POST_CODE_REQUIRED' | translate}} </div>
+                        <div ng-message="md-maxlength">{{'POST_CODE_IS_TO_LONG'| translate}}</div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>{{ 'CITY' | translate }}</label>
+                    <input name="city" ng-model="address.city" placeholder="{{ 'CITY' | translate }}" required>
+                    <div ng-messages="addressForm.city.$error" role="alert" multiple>
+                        <div ng-message="required">{{'CITY_REQUIRED' | translate}} </div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>{{ 'COUNTRY' | translate }}</label>
+                    <md-select name="type" ng-model="address.country" data-placeholder="" required>
+                        <md-option value="{{country.code}}" ng-repeat="country in countries">{{country.name}}</md-option>
+                    </md-select>
+                </md-input-container>
+                <br/>
+                <md-input-container class="md-block">
+                    <label>{{ 'ADDRESS_TYPE' | translate }}</label>
+                    <md-select name="type" ng-model="address.type" data-placeholder="" required>
+                        <md-option value="1">{{ 'LEGAL_ADDRESS' | translate }}</md-option>
+                        <md-option value="2">{{ 'WORK_ADDRESS' | translate }}</md-option>
+                        <md-option value="3">{{ 'POST_ADDRESS' | translate }}</md-option>
+                        <!-- <md-option value="3">{{ 'HOME_ADDRESS' | translate }}</md-option> -->
+                    </md-select>
+                </md-input-container>
+            </form>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row" ng-show="!Saving">
+        <md-button ng-click="saveAddressClick()">
+            Save
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>
