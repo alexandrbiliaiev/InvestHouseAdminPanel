@@ -1,0 +1,54 @@
+<div class="container" ng-controller="SiteController">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title pull-left"> Informacja o stronie </h3>
+                    <div class="clearfix">
+                        <button ng-show="editing && !loadingInfo" ng-click="saveSiteData()"
+                                class="btn btn-default pull-right">Zapisz
+                        </button>
+                        <button ng-show="!editing && !loadingInfo" ng-click="editSiteData()"
+                                class="btn btn-default pull-right">Edytuj
+                        </button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="container" ng-show="loadingInfo">
+                        <div class="loader col-center"></div>
+                        <div class="text-center">Pobieramy dane...</div>
+                    </div>
+
+
+                    <div ng-show="!loadingInfo">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">Nazwa strony</span>
+                                <input type="text" class="form-control" placeholder="Username"
+                                       aria-describedby="basic-addon1" ng-model="site[0].title"
+                                       ng-disabled="true">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Adres strony</span>
+                                <input type="text" class="form-control" placeholder="Username"
+                                       aria-describedby="basic-addon1" ng-model="site[0].url"
+                                       ng-disabled="true">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Opis strony</span>
+                                <input type="text" class="form-control" placeholder="Username"
+                                       aria-describedby="basic-addon1" ng-model="site[0].description"
+                                       ng-disabled="true">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

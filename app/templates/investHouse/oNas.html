@@ -1,0 +1,21 @@
+<div class="container" ng-controller="SiteController">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title pull-left">
+                {{content.menuName}}
+            </h3>
+            <div class="clearfix"></div>
+        </div>
+        <div class="panel-body">
+            <div ng-show="loadingContent">
+                <div class="loader col-center"></div>
+                <div class="text-center">Pobieramy dane...</div>
+            </div>
+            <div ng-show="!loadingContent">
+                
+            </div>
+              {{content.menuName}}
+        </div>
+
+    </div>
+</div>
