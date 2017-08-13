@@ -1,0 +1,79 @@
+<div >
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+    </div>
+    <div class="modal-body">
+
+        <!-- left column -->
+        <div class="col-md-12">
+            <div class="text-center">
+                <img src="{{investment.logo}}" class="avatar" alt="avatar">
+                <h6>Dodaj logo...</h6>
+
+                <input type="file" ng-model="picFile" ngf-select="uploadFile(picFile)" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+            </div>
+        </div>
+
+
+        <!-- edit form column -->
+        <div class="col-md-12 personal-info">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Link do strony:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="text" ng-model="investment.link">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Investycja zrealizowana:</label>
+                    <div class="col-lg-8">
+                        <input style="margin-top:10px;" type="checkbox" ng-model="investment.done">
+                    </div>
+                </div>
+                <hr/>
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Nazwa</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" type="text" ng-model="investment.name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Opis</label>
+                    <div class="col-lg-8">
+                        <textarea class="form-control" rows="5" ng-model="investment.description"></textarea>
+                    </div>
+                </div>
+
+                <hr/>
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Nazwa UA</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" type="text" ng-model="investment.nameUa">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Opis UA</label>
+                    <div class="col-lg-8">
+                        <textarea class="form-control" rows="5" ng-model="investment.descriptionUa"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                        <input type="button" class="btn btn-primary" value="Zapisz zmainy" ng-click="saveInvestment(investment)">
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+</div>

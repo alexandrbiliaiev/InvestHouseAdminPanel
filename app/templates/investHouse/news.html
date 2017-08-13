@@ -1,11 +1,11 @@
-<div ng-controller="InvestmentController">
+<div ng-controller="NewsController">
     <div class="container">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title pull-left">
                     Inwestycje
                 </h3>
-                <a ng-show="!loadingInfo" href="#!/investments/add/0" class="btn btn-default pull-right" role="button">Dodaj</a>
+                <a ng-show="!loadingInfo" href="#!/news/add/1/0" class="btn btn-default pull-right" role="button">Dodaj</a>
                 <div class="clearfix"></div>
             </div>
             <div class="panel-body">
@@ -17,27 +17,24 @@
                     <table class="table table-hover table-striped" ng-show="!loadingContent">
                         <thead>
                             <tr>
-                                <th>Nazwa</th>
-                                <th>Nazwa UA</th>
-                                <th>Zrealizowane</th>
-                                <th>Link</th>
+                                <th>Tytuł</th>
+                                <th>Tytuł UA</th>
+                                <th>Data Dodania</th>
                                 <!--  <th>Data dodania</th> -->
                                 <th></th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="investment in investments">
-                                <td>{{investment.name}}</td>
-                                <td>{{investment.nameUa}}</td>
-                                <td ng-show="investment.done == true">Tak</td>
-                                <td ng-show="investment.done != true">Nie</td>
-                                <td><a href="investment.link">{{investment.link}}</a></td>
+                            <tr ng-repeat="article in news">
+                                <td>{{article.title}}</td>
+                                <td>{{article.titleUa}}</td>
+                                <td>{{ article.creationDate | date : "dd.MM.y" }}</td>
                                 <td>
-                                    <a href="#!/investments/edit/{{investment.id}}" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-edit"></span> Edytuj</a>
+                                    <a href="#!/news/edit/{{siteId}}/{{article.id}}" class="btn btn-sm btn-info pull-right"><span class="glyphicon glyphicon-edit"></span> Edytuj</a>
                                 </td>
                                 <td>
-                                    <a ng-click="removeInvestment(investment.id)" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-edit"></span> Usuń</a>
+                                    <a ng-click="removeArticle(article.id)" class="btn btn-sm btn-danger pull-right"><span class="glyphicon glyphicon-edit"></span> Usuń</a>
                                 </td>
                                 <!--   <td>{{cont.creationDate}}</td> -->
                             </tr>

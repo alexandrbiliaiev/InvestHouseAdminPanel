@@ -1,53 +1,74 @@
 <div class="container" ng-controller="InvestmentDetailController">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title pull-left">
-                {{investment.name}}
-            </h3>
-            <div class="clearfix"></div>
-        </div>
-        <div class="panel-body">
-            <div ng-show="loadingContent">
-                <div class="loader col-center"></div>
-                <div class="text-center">Pobieramy dane...</div>
+    <div class="container">
+        <h1>{{investment.name}}</h1>
+        <hr>
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-3">
+                <div class="text-center">
+                    <img src="{{investment.logo}}" class="avatar" alt="avatar">
+                    <h6>Dodaj logo...</h6>
+
+                    <input type="file" ng-model="picFile" ngf-select="uploadFile(picFile)" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+                </div>
             </div>
-            <div ng-show="!loadingContent">
-                <form>
-                    <input type="text" ng-model="investment.logo" />
-                    <input type="text" ng-model="investment.name" />
-                    <input type="text" ng-model="investment.nameUa" />
-                    <input type="text" ng-model="investment.description" />
-                    <input type="text" ng-model="investment.descriptionUa" />
-                    <input type="text" ng-model="investment.done" />
-                    <button type="submit" ng-click="saveInvestment(investment)">Save</button>
+
+            <!-- edit form column -->
+            <div class="col-md-9 personal-info">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Link do strony:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" ng-model="investment.link">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Investycja zrealizowana:</label>
+                        <div class="col-lg-8">
+                            <input style="margin-top:10px;" type="checkbox" ng-model="investment.done">
+                        </div>
+                    </div>
+                    <hr/>
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Nazwa</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" ng-model="investment.name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Opis</label>
+                        <div class="col-lg-8">
+                            <textarea class="form-control" rows="5" ng-model="investment.description"></textarea>
+                        </div>
+                    </div>
+
+                    <hr/>
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Nazwa UA</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" ng-model="investment.nameUa">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Opis UA</label>
+                        <div class="col-lg-8">
+                            <textarea class="form-control" rows="5" ng-model="investment.descriptionUa"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"></label>
+                        <div class="col-md-8">
+                            <input type="button" class="btn btn-primary" value="Zapisz zmainy" ng-click="saveArticle(article)">
+                        </div>
+                    </div>
                 </form>
-
-
-
             </div>
-
-            <form name="myForm">
-                <fieldset>
-                    <legend>Upload on form submit</legend>
-
-
-
-                    <br>Photo:
-                    <input type="file" ngf-select ng-model="picFile" name="file" accept="image/*" ngf-max-size="2MB" required ngf-model-invalid="errorFile">
-                  
-                    <img ngf-thumbnail="picFile" class="thumb"> <button ng-click="picFile = null" ng-show="picFile">Remove</button>
-                    <br>
-                    <button ng-click="uploadFile(picFile)">Submit</button>
-                   
-                    <span ng-show="picFile.result">Upload Successful</span>
-                    <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
-
-                </fieldset>
-                <br>
-                {{filepath}}
-            </form>
-
         </div>
-
     </div>
+    <hr>
 </div>

@@ -1,6 +1,8 @@
-var app = angular.module('investHouseAdmin', ['ngRoute', 'ngQuill', 'investHouseAdmin.services', 'ngFileUpload',
+var app = angular.module('investHouseAdmin', ['ngRoute', 'ngQuill', 'ui.bootstrap', 'investHouseAdmin.services', 'ngFileUpload',
     'investHouseAdmin.controllers'])
-    .config(function ($routeProvider) {
+    .config(function($routeProvider) {
+
+
 
         $routeProvider
             .when("/", {
@@ -18,16 +20,42 @@ var app = angular.module('investHouseAdmin', ['ngRoute', 'ngQuill', 'investHouse
                 templateUrl: "/templates/investHouse/investments.html",
                 controller: 'InvestmentController'
             })
+            .when("/investments/add/:id", {
+                templateUrl: "/templates/investHouse/investmentDetails.html",
+                controller: 'InvestmentController'
+            })
             .when("/investments/edit/:id", {
                 templateUrl: "/templates/investHouse/investmentDetails.html",
                 controller: 'InvestmentDetailController'
+            })
+            .when("/news/edit/:siteId/:articleId", {
+                templateUrl: "/templates/investHouse/newsDetails.html",
+                controller: 'NewsController'
+            })
+            .when("/news/:id", {
+                templateUrl: "/templates/investHouse/news.html",
+                controller: 'NewsController'
+            })
+            .when("/news/add/:siteId/:articleId", {
+                templateUrl: "/templates/investHouse/newsDetails.html",
+                controller: 'NewsController'
             });
 
-    }).config(['ngQuillConfigProvider', function (ngQuillConfigProvider) {
-        ngQuillConfigProvider.set();
+
+    }).config(['ngQuillConfigProvider', function(ngQuillConfigProvider) {
+    ngQuillConfigProvider.set();
 
 
-    }]);
+}])
+    .run(function($rootScope) {
+
+        $rootScope.prod = false;
+        if ($rootScope.prod) {
+            $rootScope.apiLink = "http://bielka-002-site1.ctempurl.com/"
+        } else {
+            $rootScope.apiLink = "http://localhost:63031/";
+        }
+    });
 
 // use the HTML5 History API
 

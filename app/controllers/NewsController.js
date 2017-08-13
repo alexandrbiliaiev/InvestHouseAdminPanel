@@ -1,31 +1,32 @@
-angular.module('investHouseAdmin.controllers').controller('InvestmentController',
-    function($scope, $location, $http, investmentService, $uibModal, Upload, $rootScope) {
+angular.module('investHouseAdmin.controllers').controller('NewsController',
+    function($scope, $location, $http, newsService, $uibModal, Upload, $routeParams) {
 
         $scope.loadingInfo = true;
 
-        $scope.investments = [];
+        $scope.news = [];
 
+        $scope.siteId = $routeParams.id;
 
-        investmentService.loadInvestments().then(function(response) {
-            $scope.investments = response.data;
+        newsService.loadNews($scope.siteId).then(function(response) {
+            $scope.news = response.data;
             $scope.loadingInfo = false;
         }, function(error) {
             ;
         });
 
-        $scope.removeInvestment = function(id) {
-            investmentService.removeInvestment(id).then(function(response) {
+        $scope.removeArticle = function(id) {
+            newsService.removeArticle(id).then(function(response) {
 
                 if (response.data != true) {
                     return;
                 }
 
-                for (i in $scope.investments) {
-                    if ($scope.investments[i].id != id) {
+                for (i in $scope.news) {
+                    if ($scope.news[i].id != id) {
                         continue;
                     }
 
-                    $scope.investments.splice(i, 1);
+                    $scope.news.splice(i, 1);
                     return;
                 }
 
@@ -47,7 +48,7 @@ angular.module('investHouseAdmin.controllers').controller('InvestmentController'
 
             file.upload.then(function(response) {
                 $scope.filepath = response.data.name;
-                $scope.investment.logo = $rootScope.apiLink + $scope.filepath;
+                $scope.investment.image = $rootScope.apiLink + $scope.filepath;
             }, function(error) {
                 $state.go('error');
             });
@@ -67,7 +68,7 @@ angular.module('investHouseAdmin.controllers').controller('InvestmentController'
 
 
         $scope.saveInvestment = function(inv) {
-            investmentService.saveInvestment(inv).then(function(response) {
+            newsService.saveInvestment(inv).then(function(response) {
                 $scope.investments.push(response.data);
                 $scope.loadingInfo = false;
             }, function(error) {
@@ -75,6 +76,5 @@ angular.module('investHouseAdmin.controllers').controller('InvestmentController'
             });
         }
 
-
-
     });
+

@@ -1,34 +1,34 @@
 angular.module('investHouseAdmin.services')
-    .factory('investmentService', ['$http', function ($http) {
+    .factory('investmentService', ['$http', '$rootScope', function($http, $rootScope) {
 
         var investments = {};
 
 
-        investments.loadInvestments = function () {
+        investments.loadInvestments = function() {
             return $http({
-                url: 'http://localhost:63031/api/investments/get',
+                url: $rootScope.apiLink + 'api/investments/get',
                 method: "GET"
             });
         }
 
-        investments.loadInvestment = function (id) {
+        investments.loadInvestment = function(id) {
             return $http({
-                url: 'http://localhost:63031/api/investments/get/' + id,
+                url: $rootScope.apiLink + 'api/investments/get/' + id,
                 method: "GET"
             });
         }
 
-        investments.saveInvestment = function (investment) {
+        investments.saveInvestment = function(investment) {
             return $http({
-                url: 'http://localhost:63031/api/investments/save',
+                url: $rootScope.apiLink + 'api/investments/save',
                 method: "POST",
                 data: investment
             });
         }
 
-        investments.removeInvestment = function (id) {
+        investments.removeInvestment = function(id) {
             return $http({
-                url: 'http://localhost:63031/api/investments/remove/' + id,
+                url: $rootScope.apiLink + 'api/investments/remove/' + id,
                 method: "GET"
             });
         }
