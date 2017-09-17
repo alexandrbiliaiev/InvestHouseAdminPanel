@@ -29,6 +29,16 @@ angular.module('investHouseAdmin.controllers').controller('InvestmentDetailContr
 
         $scope.loadingInfo = true;
 
+        $scope.doClick = function(event) {
+
+
+            var offsetX = event.offsetX;
+            var offsetY = event.offsetY;
+
+            // you have lots of things to try here, not sure what you want to calculate
+            console.log(offsetX, offsetY);
+        };
+
 
 
         $scope.saveInvestment = function(inv) {

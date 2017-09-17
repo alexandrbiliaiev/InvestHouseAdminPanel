@@ -11,6 +11,9 @@
 
                     <input type="file" ng-model="picFile" ngf-select="uploadFile(picFile)" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
                 </div>
+                <div ng-click="doClick($event)">
+                    <img src="{{investment.logo}}" class="avatar" alt="avatar">
+                </div>
             </div>
 
             <!-- edit form column -->
@@ -59,7 +62,7 @@
                             <textarea class="form-control" rows="5" ng-model="investment.descriptionUa"></textarea>
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label class="col-md-3 control-label"></label>
                         <div class="col-md-8">

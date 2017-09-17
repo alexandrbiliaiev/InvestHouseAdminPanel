@@ -49,7 +49,7 @@ var app = angular.module('investHouseAdmin', ['ngRoute', 'ngQuill', 'ui.bootstra
 }])
     .run(function($rootScope) {
 
-        $rootScope.prod = false;
+        $rootScope.prod = true;
         if ($rootScope.prod) {
             $rootScope.apiLink = "http://bielka-002-site1.ctempurl.com/"
         } else {
