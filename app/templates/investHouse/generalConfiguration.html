@@ -1,72 +1,169 @@
-<div class="container" ng-controller="GeneralDetailController">
+<div class="container" ng-controller="GeneralConfigurationController">
+
+    <div class="row">
+        <header style="background-image: url('{{configData.backgroundImage}}');">
+            <div class="container">
+                <div class="intro-text">
+                    <div class="intro-lead-in" style="color:{{configData.introLeadInColor}}; font-family:{{configData.introLeadInFont}};">{{configData.introLeadIn}}</div>
+                    <div class="intro-heading" style="color:{{configData.introHeadingColor}}; font-family:{{configData.introHeadingFont}};">{{configData.introHeading}}</div>
+                    <a href="" class="page-scroll btn btn-xl" style=" color: {{configData.introButtonFontColor}};
+                    background-color: {{configData.introButtonColor}};  border-color: {{configData.introButtonColor}}; font-family:{{configData.introButtonTextFont}}">{{configData.introButtonText}}</a>
+                </div>
+            </div>
+        </header>
+    </div>
+
     <div class="container">
-        <h1>{{investment.name}}</h1>
-        <hr>
+
         <div class="row">
             <!-- left column -->
-            <div class="col-md-3">
+            <div class="col-md-12">
                 <div class="text-center">
-                    <img src="{{investment.logo}}" class="avatar" alt="avatar">
-                    <h6>Dodaj logo...</h6>
-
-                    <input type="file" ng-model="picFile" ngf-select="uploadFile(picFile)" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+                    <br />
+                    <label class="btn btn-primary"> Wybierz plik
+                    <input type="file"  style="display: none;" ng-model="picFile" ngf-select="uploadFile(picFile)" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+                </label>
                 </div>
                 <div ng-click="doClick($event)">
-                    <img src="{{investment.logo}}" class="avatar" alt="avatar">
                 </div>
             </div>
 
             <!-- edit form column -->
-            <div class="col-md-9 personal-info">
+            <div class="col-md-12 personal-info">
                 <form class="form-horizontal" role="form">
+                    <br />
                     <div class="form-group">
-                        <label class="col-lg-3 control-label">Link do strony:</label>
-                        <div class="col-lg-8">
-                            <input class="form-control" type="text" ng-model="investment.link">
+                        <label class="col-lg-2 control-label">Tekst nagłowka 1:</label>
+                        <div class="col-lg-2">
+                            <input class="form-control" type="text" ng-model="configData.introLeadIn">
+                        </div>
+
+                        <label class="col-lg-2 control-label">Kolor nagłowka 1:</label>
+                        <div class="col-lg-2">
+                            <color-picker options="options" ng-model="configData.introLeadInColor"></color-picker>
+                        </div>
+
+                        <label class="col-lg-2 control-label">Czcionka:</label>
+                        <div class="col-lg-2">
+                            <select class=" form-control " ng-model="configData.introLeadInFont">
+                                <option> Century Gothic </option>
+                                <option> Arial </option>
+                                <option> Helvetica </option>                                  
+                                <option> Times New Roman </option>
+                                <option> Times </option>
+                                <option> Courier </option>  
+                                <option> Verdana </option>  
+                                <option> Georgia </option>                           
+                            </select>
+                        </div>
+
+
+                    </div>
+                    <div class="form-group">
+
+                        <div class="intro-heading" style="color:{{settings.introHeadingColor}}; font-family:{{settings.introHeadingFont}};">{{settings.introHeading}}</div>
+                        <label class="col-lg-2 control-label">Tekst nagłowka 2:</label>
+                        <div class="col-lg-2">
+                            <input class="form-control" type="text" ng-model="configData.introHeading">
+                        </div>
+
+                        <label class="col-lg-2 control-label">Kolor nagłowka 2:</label>
+                        <div class="col-lg-2">
+                            <color-picker options="options" ng-model="configData.introHeadingColor"></color-picker>
+                        </div>
+
+                        <label class="col-lg-2 control-label">Czcionka:</label>
+                        <div class="col-lg-2">
+                            <select class=" form-control " ng-model="configData.introHeadingFont">
+                                    <option> Century Gothic </option>
+                                    <option> Arial </option>
+                                    <option> Helvetica </option>                                  
+                                    <option> Times New Roman </option>
+                                    <option> Times </option>
+                                    <option> Courier </option>  
+                                    <option> Verdana </option>  
+                                    <option> Georgia </option>                                 
+                            </select>
+
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-lg-3 control-label">Investycja zrealizowana:</label>
+                        <label class="col-lg-2 control-label">Tekst przycisku:</label>
+                        <div class="col-lg-2">
+                            <input class="form-control" type="text" ng-model="configData.introButtonText">
+                        </div>
+
+                        <label class="col-lg-2 control-label">Kolor przycisku:</label>
+                        <div class="col-lg-2">
+                            <color-picker options="options" ng-model="configData.introButtonColor"></color-picker>
+                        </div>
+
+                        <label class="col-lg-2 control-label">Czcionka:</label>
+                        <div class="col-lg-2">
+                            <select class=" form-control " ng-model="configData.introButtonTextFont">
+                                                    <option> Serif </option>
+                                                    <option> Arial </option>
+                                                    <option> Sans-Serif </option>                                  
+                                                    <option> Tahoma </option>
+                                                    <option> Verdana </option>
+                                                    <option> Lucida Sans Unicode </option>                               
+                                                  </select>
+
+                        </div>
+
+                        <label class="col-lg-2 control-label">Kolor tekstu przycisku:</label>
+                        <div class="col-lg-2">
+                            <color-picker options="options" ng-model="configData.introButtonFontColor"></color-picker>
+                        </div>
+
+
+                    </div>
+
+
+
+                    <hr/>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Adres firmy:</label>
                         <div class="col-lg-8">
-                            <input style="margin-top:10px;" type="checkbox" ng-model="investment.done">
+                            <input class="form-control" type="text" ng-model="configData.address">
                         </div>
                     </div>
                     <hr/>
 
                     <div class="form-group">
-                        <label class="col-lg-3 control-label">Nazwa</label>
+                        <label class="col-lg-2 control-label">Telefony:</label>
                         <div class="col-lg-8">
-                            <input class="form-control" type="text" ng-model="investment.name">
+                            <input class="form-control" type="text" ng-model="configData.phones">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-lg-3 control-label">Opis</label>
+                        <label class="col-lg-2 control-label">Fax:</label>
                         <div class="col-lg-8">
-                            <textarea class="form-control" rows="5" ng-model="investment.description"></textarea>
+                            <input class="form-control" type="text" ng-model="configData.fax">
                         </div>
                     </div>
 
                     <hr/>
 
                     <div class="form-group">
-                        <label class="col-lg-3 control-label">Nazwa UA</label>
+                        <label class="col-lg-2 control-label">Email</label>
                         <div class="col-lg-8">
-                            <input class="form-control" type="text" ng-model="investment.nameUa">
+                            <input class="form-control" type="text" ng-model="configData.email">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-lg-3 control-label">Opis UA</label>
+                        <label class="col-lg-2 control-label">Skype</label>
                         <div class="col-lg-8">
-                            <textarea class="form-control" rows="5" ng-model="investment.descriptionUa"></textarea>
+                            <input class="form-control" type="text" ng-model="configData.skype">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-3 control-label"></label>
-                        <div class="col-md-8">
-                            <input type="button" class="btn btn-primary" value="Zapisz zmainy" ng-click="saveInvestment(investment)">
+
+                        <div class="col-md-12">
+                            <input type="button" class="btn btn-primary" value="Zapisz zmainy" ng-click="saveConfiguration(configData)">
                         </div>
                     </div>
                 </form>

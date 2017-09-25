@@ -6,6 +6,11 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/angular-color-picker/dist/angularjs-color-picker.min.css" />
+    <!-- only include if you use bootstrap -->
+    <link rel="stylesheet" href="bower_components/angular-color-picker/dist/themes/angularjs-color-picker-bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="bower_components/angular-fontselect/dist/angular-fontselect.css">
+    
     <link rel="stylesheet" href="app.css">
 
 
@@ -20,7 +25,7 @@
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="">Invest House<span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li><a href="#!/site/1">Konfiguracja Ogólna</a></li>
+                <li><a href="#!/generalConfiguration">Konfiguracja Ogólna</a></li>
                 <li class="divider"></li>
                 <li><a href="#!/about">O Nas</a></li>
                 <li class="divider"></li>
@@ -51,6 +56,10 @@
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/ngQuill/src/ng-quill.js"></script>
+<script src="bower_components/tinycolor/dist/tinycolor-min.js"></script>
+<script src="bower_components/angular-color-picker/dist/angularjs-color-picker.min.js"></script>
+<script src="bower_components/angular-fontselect/dist/libs/webfontloader.js"></script>
+<script src="bower_components/angular-fontselect/dist/angular-fontselect.js"></script>
 <script src="js/ui-bootstrap.min.js"></script>
 
 
@@ -60,6 +69,7 @@
 <script src="services/siteService.js"></script>
 <script src="services/investmentService.js"></script>
 <script src="services/newsService.js"></script>
+<script src="services/generalConfigurationService.js"></script>
 
 <script src="controllers/MainController.js"></script>
 <script src="controllers/SiteController.js"></script>
@@ -67,6 +77,7 @@
 <script src="controllers/InvestmentDetailController.js"></script>
 <script src="controllers/NewsController.js"></script>
 <script src="controllers/NewsDetailController.js"></script>
+<script src="controllers/GeneralConfigurationController.js"></script>
 <script src="js/ng-file-upload.js"></script>
 
 

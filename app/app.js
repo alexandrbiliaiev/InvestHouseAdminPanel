@@ -1,8 +1,6 @@
-var app = angular.module('investHouseAdmin', ['ngRoute', 'ngQuill', 'ui.bootstrap', 'investHouseAdmin.services', 'ngFileUpload',
+var app = angular.module('investHouseAdmin', ['ngRoute', 'ngQuill', 'jdFontselect', 'color.picker', 'ui.bootstrap', 'investHouseAdmin.services', 'ngFileUpload',
     'investHouseAdmin.controllers'])
     .config(function($routeProvider) {
-
-
 
         $routeProvider
             .when("/", {
@@ -39,17 +37,21 @@ var app = angular.module('investHouseAdmin', ['ngRoute', 'ngQuill', 'ui.bootstra
             .when("/news/add/:siteId/:articleId", {
                 templateUrl: "/templates/investHouse/newsDetails.html",
                 controller: 'NewsController'
+            })
+            .when("/generalConfiguration", {
+                templateUrl: "/templates/investHouse/generalConfiguration.html",
+                controller: 'GeneralConfigurationController'
             });
 
 
     }).config(['ngQuillConfigProvider', function(ngQuillConfigProvider) {
     ngQuillConfigProvider.set();
-
-
 }])
+
+
     .run(function($rootScope) {
 
-        $rootScope.prod = true;
+        $rootScope.prod = false;
         if ($rootScope.prod) {
             $rootScope.apiLink = "http://bielka-002-site1.ctempurl.com/"
         } else {
