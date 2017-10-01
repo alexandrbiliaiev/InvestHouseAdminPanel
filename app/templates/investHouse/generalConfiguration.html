@@ -39,7 +39,7 @@
                         </div>
 
                         <label class="col-lg-2 control-label">Kolor nagłowka 1:</label>
-                        <div class="col-lg-2">
+                        <div class="col-lg-2" style="margin-top:5px;">
                             <color-picker options="options" ng-model="configData.introLeadInColor"></color-picker>
                         </div>
 
@@ -56,9 +56,10 @@
                                 <option> Georgia </option>                           
                             </select>
                         </div>
-
-
                     </div>
+
+                    <hr/>
+
                     <div class="form-group">
 
                         <div class="intro-heading" style="color:{{settings.introHeadingColor}}; font-family:{{settings.introHeadingFont}};">{{settings.introHeading}}</div>
@@ -67,8 +68,8 @@
                             <input class="form-control" type="text" ng-model="configData.introHeading">
                         </div>
 
-                        <label class="col-lg-2 control-label">Kolor nagłowka 2:</label>
-                        <div class="col-lg-2">
+                        <label class="col-lg-2 control-label" >Kolor nagłowka 2:</label>
+                        <div class="col-lg-2" style="margin-top:5px;">
                             <color-picker options="options" ng-model="configData.introHeadingColor"></color-picker>
                         </div>
 
@@ -87,6 +88,9 @@
 
                         </div>
                     </div>
+
+                    <hr/>
+
                     <div class="form-group">
                         <label class="col-lg-2 control-label">Tekst przycisku:</label>
                         <div class="col-lg-2">
@@ -94,7 +98,7 @@
                         </div>
 
                         <label class="col-lg-2 control-label">Kolor przycisku:</label>
-                        <div class="col-lg-2">
+                        <div class="col-lg-2" style="margin-top:5px;">
                             <color-picker options="options" ng-model="configData.introButtonColor"></color-picker>
                         </div>
 
@@ -112,7 +116,7 @@
                         </div>
 
                         <label class="col-lg-2 control-label">Kolor tekstu przycisku:</label>
-                        <div class="col-lg-2">
+                        <div class="col-lg-2" style="margin-top:5px;">
                             <color-picker options="options" ng-model="configData.introButtonFontColor"></color-picker>
                         </div>
 
@@ -162,7 +166,7 @@
 
                     <div class="form-group">
 
-                        <div class="col-md-12">
+                        <div class="col-md-12 text-center">
                             <input type="button" class="btn btn-primary" value="Zapisz zmainy" ng-click="saveConfiguration(configData)">
                         </div>
                     </div>
